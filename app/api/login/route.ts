@@ -15,7 +15,6 @@ export async function POST(req: Request) {
   const token = sign({ name, email }, "jwtsecret", { expiresIn: MAX_AGE });
 
   const seralized = serialize("token", token, {
-    httpOnly: true,
     secure: true,
     maxAge: MAX_AGE,
     sameSite: "none",
