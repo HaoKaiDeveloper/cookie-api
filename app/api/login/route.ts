@@ -42,7 +42,7 @@ export async function OPTIONS(req: Request) {
     headers: {
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Allow-Credentials": "true",
-      "Accrss-Control-Allow-Headers": "content-type",
+      "Access-Control-Allow-Headers": "content-type",
       "Access-Control-Max-Age": "3600",
     },
   });
