@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 const MAX_AGE = 60 * 60;
 
 export async function GET(req: Request) {
+  const origin = req.headers.get("origin") as string;
   return NextResponse.json(
     { msg: "getgata", cookie: req.headers },
     {
