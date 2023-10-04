@@ -18,6 +18,7 @@ export async function POST(req: Request) {
     httpOnly: true,
     secure: true,
     maxAge: MAX_AGE,
+    sameSite: "none",
     path: "/",
   });
 
