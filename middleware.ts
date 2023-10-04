@@ -7,10 +7,17 @@ const allowedOriginList =
 
 export function middleware(req: NextRequest) {
   const origin = req.headers.get("origin");
+  const cookietoken = req.cookies.get("token")?.value;
 
   if (origin && !allowedOriginList.includes(origin)) {
     return new NextResponse(null, {
       status: 400,
+    });
+  }
+
+  if (!cookietoken) {
+    return new NextResponse(null, {
+      status: 401,
     });
   }
 
