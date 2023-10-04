@@ -14,12 +14,5 @@ export function middleware(req: NextRequest) {
     });
   }
 
-  if (req.nextUrl.pathname.startsWith("/secret")) {
-    const token = req.cookies.get("token")?.value;
-    if (!token) {
-      return NextResponse.redirect(new URL("/", req.url));
-    }
-  }
-
   return NextResponse.next();
 }
