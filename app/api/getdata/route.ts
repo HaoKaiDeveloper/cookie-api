@@ -1,11 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
 const MAX_AGE = 60 * 60;
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
+  const cookiesStore = cookies();
+  const token = cookiesStore.get("token");
   const origin = req.headers.get("origin") as string;
   return NextResponse.json(
-    { msg: "getgata", cookie: req.headers },
+    { msg: "getgata", cookie: token },
     {
       status: 200,
       headers: {

@@ -1,22 +1,17 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { sign } from "jsonwebtoken";
 import { serialize } from "cookie";
 
 const MAX_AGE = 60 * 60;
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { name, email } = body;
   const origin = req.headers.get("origin") as string;
 
-  if (!name || !email) {
-    return NextResponse.json({ msg: "failed" });
-  }
-  const token = sign({ name, email }, "jwtsecret", { expiresIn: MAX_AGE });
+  const token = sign({ tokenMsg: 123 }, "jwtsecret", { expiresIn: MAX_AGE });
 
   const seralized = serialize("token", token, {
-    httpOnly: true,
-    secure: true,
+    secure: false,
     maxAge: MAX_AGE,
     sameSite: "none",
     path: "/",
