@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   });
 
   return NextResponse.json(
-    { msg: "login" },
+    { msg: "login", token: seralized },
     {
       status: 200,
       headers: {

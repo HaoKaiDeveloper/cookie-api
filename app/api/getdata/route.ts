@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   const token = cookiesStore.get("token");
   const origin = req.headers.get("origin") as string;
   return NextResponse.json(
-    { msg: "getgata" },
+    { msg: "getgata", token: token },
     {
       status: 200,
       headers: {
