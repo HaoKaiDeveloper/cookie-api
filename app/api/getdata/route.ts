@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   const token = cookiesStore.get("token");
   const origin = req.headers.get("origin") as string;
   return NextResponse.json(
-    { msg: "getgata", cookie: token },
+    { msg: "getgata" },
     {
       status: 200,
       headers: {
@@ -19,16 +19,16 @@ export async function GET(req: NextRequest) {
   );
 }
 
-export async function OPTIONS(req: Request) {
-  const origin = req.headers.get("origin") as string;
+// export async function OPTIONS(req: Request) {
+//   const origin = req.headers.get("origin") as string;
 
-  return new NextResponse(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": origin,
-      "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Headers": "content-type",
-      "Access-Control-Max-Age": "3600",
-    },
-  });
-}
+//   return new NextResponse(null, {
+//     status: 200,
+//     headers: {
+//       "Access-Control-Allow-Origin": origin,
+//       "Access-Control-Allow-Credentials": "true",
+//       "Access-Control-Allow-Headers": "content-type",
+//       "Access-Control-Max-Age": "3600",
+//     },
+//   });
+// }
