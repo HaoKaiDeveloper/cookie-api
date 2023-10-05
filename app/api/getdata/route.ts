@@ -11,10 +11,6 @@ export async function GET(req: NextRequest) {
     { msg: "getgata", token: token, cookies: "cookie" },
     {
       status: 200,
-      headers: {
-        "Access-Control-Allow-Origin": origin,
-        "Access-Control-Allow-Credentials": "true",
-      },
     }
   );
 }
